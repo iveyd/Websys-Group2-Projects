@@ -1,0 +1,42 @@
+body {
+	background-color: darkgray;
+}
+form {
+	margin: 5% auto;
+	text-align: center;
+	max-height: 400px;
+	max-width: 500px;
+}
+img {
+	height: 100%;
+	width: 100%;
+}
+div {
+	display: inline-block;
+	max-width: 500px; 
+}
+button {
+	width: 100px;
+	height: 30px;
+}
+label {
+	margin: 10px;
+}
+input {
+	margin: 10px 10px 25px 10px;
+	border: 1px solid black;
+	line-height: 30px;
+	width: 200px;
+	height: 30px;
+}
+#title {
+	border-bottom: 2px solid black;
+	padding-bottom: 5px;
+}
+.avatar {
+	width: 100px;
+	height: 100px;
+}
+.avatar:hover {
+	box-shadow: 0px 0px 2px 2px #888888;
+}
