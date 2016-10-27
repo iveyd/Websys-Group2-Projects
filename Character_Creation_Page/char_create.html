@@ -2,28 +2,92 @@
 
 <html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Character Creation</title>
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="char_create.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body>
-  <img id="title" src="Create-Your-Character.png" alt="Create Your Character">
-  	<form action="action_page.php">
-  		<img src="Name-Your-Character.png" alt="Name Your Character"><br>
-  		<input type="text" name="name"><br>
-   		<img src="Choose-Your-Avatar.png" alt="Choose Your Avatar"><br>
-      <div>
-    		<img class="avatar" src="asian_male.png" alt="asian_male">
-    		<img class="avatar" src="asian_female.png" alt="asian_female">
-    		<img class="avatar" src="black_male.png" alt="black_male">
-    		<img class="avatar" src="black_female.png" alt="black_female">
-    		<img class="avatar" src="indian_male.png" alt="indian_male">
-    		<img class="avatar" src="indian_female.png" alt="indian_female">
-    		<img class="avatar" src="white_male.png" alt="white_male">
-    		<img class="avatar" src="white_female.png" alt="white_female">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Logo</a>
       </div>
-      <br>
-      <button type="submit">Submit</button>
-	</form>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+     <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+    </div>
+    <div id="charCreate" class="col-md-8 text-center">
+    <img id="title" src="Create-Your-Character.png" alt="Create Your Character">
+    <form id="charCreateForm">
+      <div class="form-inline">
+      <div class="text-center">
+        <img src="Name-Your-Character.png" alt="Name Your Character">
+      </div>
+      <div class="text-center">
+        <input class="form-control" type="text" name="name">
+      </div>
+      <div class="text-center">
+        <img src="Choose-Your-Avatar.png" alt="Choose Your Avatar">
+      </div>
+        <div id="avatarSelect">
+          <img class="avatar" src="light_male.png" alt="light_male">
+          <img class="avatar" src="light_female.png" alt="light_female">
+
+          <img class="avatar" src="dark_male.png" alt="dark_male">
+          <img class="avatar" src="dark_female.png" alt="dark_female">
+
+          <img class="avatar" src="tan_male.png" alt="tan_male">
+          <img class="avatar" src="tan_female.png" alt="tan_female">
+
+          <img class="avatar" src="pale_male.png" alt="pale_male">
+          <img class="avatar" src="pale_female.png" alt="pale_female">
+        </div>
+        <input id="selectedAvatar" type="hidden" name="avatar">
+        <button id="submit" type="submit" class="btn btn-success">Create!</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-sm-2 sidenav">
+      <div>
+        <p>ADS</p>
+      </div>
+      <div>
+        <p>ADS</p>
+      </div>
+    </div>
+</div>
+
+  <footer class="container-fluid text-center">
+    <p>Footer Text</p>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="char_create.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>
+
