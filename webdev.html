@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="webdev.css">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">RPIG</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li id="home-btn"><a href="#">Home</a></li>
+        <li id="character-btn" class="active"><a href="#">Character</a></li>
+        <li id="inventory-btn"><a href="#">Inventory</a></li>
+        <li id="settings-btn"><a href="#">Settings</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div id="quick-items" class="col-sm-2 sidenav">
+      <h3> Quick Items </h3>
+    </div>
+    <div id="character-screen" class="col-sm-8 text-left">
+      <h1 id="character-screen-title">Welcome</h1>
+      <img id="avatar" src="dark_female.png">
+      <div id="events" style="overflow:auto; height:125px;">
+        <h3 id="events-title">Events</h3>
+        <p>Will Insert text about events here (gaining cash, credits etc. test test test test)</p>
+        <p>Will Insert text about events here (gaining cash, credits etc. test test test test)</p>
+        <p>Will Insert text about events here (gaining cash, credits etc. test test test test)</p>
+        <p>Will Insert text about events here (gaining cash, credits etc. test test test test)</p>
+      </div>
+    </div>
+    <div class="col-sm-2 sidenav">
+      <div class="well">
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>ADS</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <h3>RPI RPG</h3>
+  <h6>David Ivey, Asad Mehdi, Joseph Noel, Connor Stalker, Chris Valmas</h6>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="webdev.js"></script>
+</body>
+</html>
+
