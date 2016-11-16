@@ -1,0 +1,103 @@
+img {
+	width: 60%;
+	margin: 0 auto 25px auto;
+}
+
+#title {
+	width: 60%;
+	padding-bottom: 10px;
+	border-bottom: 5px solid black;
+}
+
+ /* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {
+	height: 100%;
+	width: 100%;
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+  padding-top: 20px;
+  /* background-color: #f1f1f1; */
+  height: 100%;
+}
+
+.button {
+	background-color: #4CAF50;
+	border-radius: 15px;
+	outline: none;
+	border: none;
+	color: white;
+	text-align: center;
+	font-size: 125%;
+	margin: 10px;
+	cursor: pointer;
+	box-shadow: 0 5px #999;
+}
+
+.button:hover {
+    background-color: #3e8e41; /* Green */
+    color: white;
+}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
+
+.col-1 {
+	flex-direction: column;
+	display: flex;
+	width: 40%;
+	height: 50%;
+	margin-top: 10%;
+	margin-right: 10%;
+	margin-bottom: 10%;
+	float: left;
+	background-color: ;
+}
+
+.col-2 {
+	flex-direction: column;
+	display: flex;
+	width: 40%;
+	height: 50%;
+	margin-left: 10%;
+	margin-top: 10%;
+	margin-bottom: 10%;
+	float: left;
+}
+
+.col-3 {
+	flex-direction: column;
+	display: flex;
+	width: 50%;
+	height: 20%;
+	margin-left: 25%;
+	margin-bottom: 10%;
+	float: left;
+	background-color: ;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content {height:auto;}
+}
