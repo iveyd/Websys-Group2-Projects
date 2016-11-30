@@ -1,50 +1,53 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <title>RPlayI</title>
-  <!-- Bootstrap Stuff -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Welcome</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- Our Stuff -->
+  <link rel="stylesheet" type="text/css" href="resources/stylesheets/login.css">
   <link rel="stylesheet" href="resources/stylesheets/joe.css">
-</head>
-<body>
+  </head>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">RPIRPG</a>
+  <body>
+    <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">RPIG</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav"></ul>
+        <ul class="nav navbar-nav navbar-right"></ul>
+      </div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="character.html" id="buttonCharacter">Character</a></li>
-        <li><a href="inventory.html" id="buttonInventory">Inventory</a></li>
-        <li><a href="settings.html" id="buttonSettings">Settings</a></li>
-        <li><a href="admin.html" id="buttonAdmin">Admin</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
+  </nav>
+    <div class="login-page">
+      <div class="form">
+        <form id="register-form">
+          <h1>Register</h1>
+          <input type="text" placeholder="name"/>
+          <input type="password" placeholder="password"/>
+          <input type="text" placeholder="email address"/>
+          <button id="create">create</button>
+          <p class="message">Already registered? <a id="alreadyRegistered" href="#">Sign In</a></p>
+        </form>
+        <form id="login-form">
+          <h1>Welcome!</h1>
+          <input type="text" placeholder="username"/>
+          <input type="password" placeholder="password"/>
+          <button>login</button>
+          <p class="message">Not registered? <a id="createAccount" href="#">Create an account</a></p>
+        </form>
+      </div>
     </div>
-  </div>
-</nav>
-  
-<div class="container-fluid text-center">
-  <div class="row content">
-    <div class="col-sm-8 text-left" id="main"></div>
-  </div>
-</div>
-
-</body>
-<script src="resources/javascript/joe.js"></script>
+  </body>
+  <script src="resources/javascript/login.js"></script>
 </html>
-
