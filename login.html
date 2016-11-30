@@ -24,34 +24,30 @@
         <a class="navbar-brand" href="#">RPIG</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><a href="#">Home</a></li>
-          <li><a href="#" id="buttonCharacter">Character</a></li>
-          <li><a href="#" id="buttonInventory">Inventory</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
+        <ul class="nav navbar-nav"></ul>
+        <ul class="nav navbar-nav navbar-right"></ul>
       </div>
     </div>
   </nav>
     <div class="login-page">
   	  <div class="form">
-        <form class="register-form">
+        <form id="register-form">
+          <h1>Register</h1>
           <input type="text" placeholder="name"/>
           <input type="password" placeholder="password"/>
           <input type="text" placeholder="email address"/>
-          <button>create</button>
-          <p class="message">Already registered? <a href="#">Sign In</a></p>
+          <button id="create">create</button>
+          <p class="message">Already registered? <a id="alreadyRegistered" href="#">Sign In</a></p>
         </form>
-        <form class="login-form">
+        <form id="login-form">
+          <h1>Login</h1>
           <input type="text" placeholder="username"/>
           <input type="password" placeholder="password"/>
           <button>login</button>
-          <p class="message">Not registered? <a href="char_create.html">Create an account</a></p>
+          <p class="message">Not registered? <a id="createAccount" href="#">Create an account</a></p>
         </form>
       </div>
     </div>
   </body>
-  <script src="resources/php/install.php"></script>
+  <script src="resources/javascript/login.js"></script>
 </html>
