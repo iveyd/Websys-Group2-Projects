@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+body {
+  background-color: white;    
+}
+
 .login-page {
   width: 360px;
   padding: 8% 0 0;
@@ -87,7 +91,4 @@
 }
 .container .info span .fa {
   color: #EF3B3A;
-}
-body {
-  background-color: grey;    
 }
