@@ -21,7 +21,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">RPIG</a>
+        <span class="navbar-brand">RPIG</span>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav"></ul>
@@ -31,21 +31,27 @@
   </nav>
     <div class="login-page">
       <div class="form">
-        <form id="register-form">
+
+        <!-- Account registration form -->
+        <form id="register-form" method="post" action="resources/php/register.php">
           <h1>Register</h1>
-          <input type="text" placeholder="name"/>
-          <input type="password" placeholder="password"/>
-          <input type="text" placeholder="email address"/>
-          <button id="create">create</button>
+          <input type="text" name="email" placeholder="email address"/>
+          <input type="text" name="username" placeholder="name"/>
+          <input type="password" name="password" placeholder="password"/>
+          <input type="password" name="confirm" placeholder="confirm password"/>
+          <input type="submit" name="create" value="Create" id="create" class="button"/>
           <p class="message">Already registered? <a id="alreadyRegistered" href="#">Sign In</a></p>
         </form>
-        <form id="login-form">
+
+        <!-- Login Form -->
+        <form id="login-form" method="post" action="resources/php/login.php">
           <h1>Welcome!</h1>
-          <input type="text" placeholder="username"/>
-          <input type="password" placeholder="password"/>
-          <button>login</button>
+          <input type="text" name="username" placeholder="username"/>
+          <input type="password" name="password" placeholder="password"/>
+          <input type="submit" name="login" value="Login" id="login" class="button"/>
           <p class="message">Not registered? <a id="createAccount" href="#">Create an account</a></p>
         </form>
+
       </div>
     </div>
   </body>
