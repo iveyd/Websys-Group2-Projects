@@ -24,12 +24,17 @@
   		// Apply salt before hash
   		$salted = hash('sha256', $salt . $_POST['password']);
   		// Store salt
-  		$stmt = $dbconn->prepare("INSERT INTO `users` (`email`, `username`, `password`, `salt`) VALUES (:email, :username, :password, :salt");
-  		$stmt->execute(array(':email' => $_POST['email'],
-  												 ':username' => $_POST['username'],
-  												 ':password' => $salted,
-  												 ':salt' => $salt));
-  		header('Location: ../../char_create.html');
+  		$stmt = $dbconn->prepare("INSERT INTO `users` (`email`, `username`, `password`, `salt`) VALUES (:email, :username, :password, :salt)");
+  		try {
+	  		$stmt->execute(array(':email' => $_POST['email'],
+	  												 ':username' => $_POST['username'],
+	  												 ':password' => $salted,
+	  												 ':salt' => $salt));
+	  		header('Location: ../../char_create.html');
+	  		exit();
+	  	} catch (PDOException $e) {
+	  		echo $e->getMessage();
+	  	}
 
   	}
   }
