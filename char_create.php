@@ -18,15 +18,18 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Logo</a>
+        <a class="navbar-brand" href="index.html">RPIRPG</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="settings.html">Settings</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="character.html" id="buttonCharacter">Character</a></li>
+          <li><a href="inventory.html" id="buttonInventory">Inventory</a></li>
+          <li class="active"><a href="#" id="buttonSettings">Settings</a></li>
+          <li><a href="admin.html" id="buttonAdmin">Admin</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
         </ul>
       </div>
     </div>
@@ -49,19 +52,21 @@
         <img src="resources/images/Choose-Your-Avatar.png" alt="Choose Your Avatar">
       </div>
         <div id="avatarSelect">
-          <input type="image" class="avatar" src="resources/images/light_male.png" alt="light_male" name="light_male">
-          <input type="image" class="avatar" src="resources/images/light_female.png" alt="light_female" name="light_female">
+        <?php $avatar = 'tan_male'; ?>
+          <img onClick="<?php $avatar = 'light_male'; ?>" type="image" class="avatar" src="resources/images/light_male.png" alt="light_male" name="light_male" />
+          <img onClick="<?php $avatar = 'light_female'; ?>" type="image" class="avatar" src="resources/images/light_female.png" alt="light_female" name="light_female" />
 
-          <input type="image" class="avatar" src="resources/images/dark_male.png" alt="dark_male" name="dark_male">
-          <input type="image" class="avatar" src="resources/images/dark_female.png" alt="dark_female" name="dark_female">
+          <img onClick="<?php $avatar = 'dark_male'; ?>" type="image" class="avatar" src="resources/images/dark_male.png" alt="dark_male" name="dark_male" />
+          <img onClick="<?php $avatar = 'dark_female'; ?>" type="image" class="avatar" src="resources/images/dark_female.png" alt="dark_female" name="dark_female" />
 
-          <input type="image" class="avatar" src="resources/images/tan_male.png" alt="tan_male" name="tan_male">
-          <input type="image" class="avatar" src="resources/images/tan_female.png" alt="tan_female" name="tan_female">
+          <img onClick="<?php $avatar = 'tan_male'; ?>" type="image" class="avatar" src="resources/images/tan_male.png" alt="tan_male" name="tan_male" />
+          <img onClick="<?php $avatar = 'tan_female'; ?>" type="image" class="avatar" src="resources/images/tan_female.png" alt="tan_female" name="tan_female" />
 
-          <input type="image" class="avatar" src="resources/images/pale_male.png" alt="pale_male" name="pale_male">
-          <input type="image" class="avatar" src="resources/images/pale_female.png" alt="pale_female" name="pale_female">
+          <img onClick="<?php $avatar = 'pale_male'; ?>" type="image" class="avatar" src="resources/images/pale_male.png" alt="pale_male" name="pale_male" />
+          <img onClick="<?php $avatar = 'pale_female'; ?>" type="image" class="avatar" src="resources/images/pale_female.png" alt="pale_female" name="pale_female" />
         </div>
-        <input id="submit" type="submit" class="btn btn-success" value="Create!"></button>
+        <input style="display: none" name="avatar" value="<?php $avatar?>">
+        <input id="submit" type="submit" class="btn btn-success" value="Create!"/>
       </div>
     </form>
   </div>
