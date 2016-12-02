@@ -5,7 +5,7 @@
   try {
     $dbname = 'RPIRPG';
     $user = 'root';
-    $pass = 'root';
+    $pass = '';
     $dbconn = new PDO('mysql:host=localhost;dbname='.$dbname, $user, $pass);
   }
   catch (Exception $e) {
@@ -30,7 +30,7 @@
 	  												 ':username' => $_POST['username'],
 	  												 ':password' => $salted,
 	  												 ':salt' => $salt));
-	  		header('Location: ../../char_create.html');
+	  		header('Location: ../../char_create.php');
 	  		exit();
 	  	} catch (PDOException $e) {
 	  		echo $e->getMessage();

@@ -1,7 +1,7 @@
 <?php
   $host = "localhost";
   $username = "root";
-  $password = "root";
+  $password = "";
 
   // Creating our database
   $db = "RPIRPG";
@@ -9,6 +9,7 @@
            USE `$db`;
            CREATE TABLE IF NOT EXISTS `users` (
              `uid` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+             `contid` int(3) NOT NULL DEFAULT '1',
              `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
              `username` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
              `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,

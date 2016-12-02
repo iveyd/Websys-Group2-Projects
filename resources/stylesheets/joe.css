@@ -34,8 +34,8 @@ footer {
 
 .gameBox {
 	text-align: center;
-	background-color: red;
-	width: 500px;
+	background-color: grey;
 	margin: 10px auto;
 	padding: 10px;
+  font-size: 10000px;
 }

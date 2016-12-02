@@ -22,14 +22,14 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="main.php">Home</a></li>
           <li><a href="character.html" id="buttonCharacter">Character</a></li>
           <li><a href="inventory.html" id="buttonInventory">Inventory</a></li>
           <li class="active"><a href="#" id="buttonSettings">Settings</a></li>
           <li><a href="admin.html" id="buttonAdmin">Admin</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+          <li><a href="index.html"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
         </ul>
       </div>
     </div>

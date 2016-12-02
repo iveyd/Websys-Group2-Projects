@@ -5,7 +5,7 @@ session_start();
 try {
   $dbname = 'RPIRPG';
   $user = 'root';
-  $pass = 'root';
+  $pass = '';
   $dbconn = new PDO('mysql:host=localhost;dbname='.$dbname, $user, $pass);
 }
 catch (Exception $e) {
@@ -33,7 +33,7 @@ if ($dbconn && isset($_POST['login']) && $_POST['login'] == 'Login') {
       header('Location: ../../admin.html');
       exit();
     } else {
-      header('Location: ../../main.html');
+      header('Location: ../../main.php');
       exit();
     }
   } else {
