@@ -1,3 +1,26 @@
+<?php
+  session_start();
+
+  if (isset($_POST['submit']) && $_POST['submit'] == 'Create!') {
+
+
+
+
+  if (isset($_POST['avatar']) || empty($_POST['avatar'])) {
+      echo "Please Name Your Character.";
+    }
+
+  if (isset($_POST['avatar']) || empty($_POST['name'])) {
+      echo "Please Choose an Avatar.";
+    }
+
+
+
+
+}
+    
+
+?>
 <!doctype html>
 
 <html lang="en">
@@ -36,7 +59,7 @@
   </nav>
   <div class="container-fluid text-center">
   <div class="row content">
-    <div id="charCreate" class="col-md-8 text-center">
+    <div id="charCreate" class="col-md-12 text-center">
     <img id="title" src="resources/images/Create-Your-Character.png" alt="Create Your Character">
 
 
@@ -46,26 +69,48 @@
         <img src="resources/images/Name-Your-Character.png" alt="Name Your Character">
       </div>
       <div class="text-center">
-        <input class="form-control" type="text" name="name">
+        <input id="nameField" class="form-control" type="text" name="name" autofocus>
       </div>
       <div class="text-center">
         <img src="resources/images/Choose-Your-Avatar.png" alt="Choose Your Avatar">
       </div>
         <div id="avatarSelect">
-        <?php $avatar = 'tan_male'; ?>
-          <img onClick="<?php $avatar = 'light_male'; ?>" type="image" class="avatar" src="resources/images/light_male.png" alt="light_male" name="light_male" />
-          <img onClick="<?php $avatar = 'light_female'; ?>" type="image" class="avatar" src="resources/images/light_female.png" alt="light_female" name="light_female" />
+          <label>
+            <input type="radio" name="avatar" value="light_male" />
+            <img class="avatar" src="resources/images/light_male.png" alt="light_male">
+          </label>
+          <label>
+            <input type="radio" name="avatar" value="light_female" />
+            <img class="avatar" src="resources/images/light_female.png" alt="light_female">
+          </label>
 
-          <img onClick="<?php $avatar = 'dark_male'; ?>" type="image" class="avatar" src="resources/images/dark_male.png" alt="dark_male" name="dark_male" />
-          <img onClick="<?php $avatar = 'dark_female'; ?>" type="image" class="avatar" src="resources/images/dark_female.png" alt="dark_female" name="dark_female" />
+          <label>
+            <input type="radio" name="avatar" value="dark_male" />
+            <img class="avatar" src="resources/images/dark_male.png" alt="dark_male">
+          </label>
+          <label>
+            <input type="radio" name="avatar" value="dark_female" />
+            <img class="avatar" src="resources/images/dark_female.png" alt="dark_female">
+          </label>
 
-          <img onClick="<?php $avatar = 'tan_male'; ?>" type="image" class="avatar" src="resources/images/tan_male.png" alt="tan_male" name="tan_male" />
-          <img onClick="<?php $avatar = 'tan_female'; ?>" type="image" class="avatar" src="resources/images/tan_female.png" alt="tan_female" name="tan_female" />
+          <label>
+            <input type="radio" name="avatar" value="tan_male" />
+            <img class="avatar" src="resources/images/tan_male.png" alt="tan_male">
+          </label>
+          <label>
+            <input type="radio" name="avatar" value="tan_female" />
+            <img class="avatar" src="resources/images/tan_female.png" alt="tan_female">
+          </label>
 
-          <img onClick="<?php $avatar = 'pale_male'; ?>" type="image" class="avatar" src="resources/images/pale_male.png" alt="pale_male" name="pale_male" />
-          <img onClick="<?php $avatar = 'pale_female'; ?>" type="image" class="avatar" src="resources/images/pale_female.png" alt="pale_female" name="pale_female" />
+          <label>
+            <input type="radio" name="avatar" value="pale_male" />
+            <img class="avatar" src="resources/images/pale_male.png" alt="pale_male">
+          </label>
+          <label>
+            <input type="radio" name="avatar" value="pale_female" />
+            <img class="avatar" src="resources/images/pale_female.png" alt="pale_female">
+          </label>
         </div>
-        <input style="display: none" name="avatar" value="<?php $avatar?>">
         <input id="submit" type="submit" class="btn btn-success" value="Create!"/>
       </div>
     </form>
@@ -78,7 +123,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="char_create.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>
 
