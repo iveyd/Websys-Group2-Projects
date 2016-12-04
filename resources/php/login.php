@@ -21,7 +21,7 @@ if ($dbconn && isset($_POST['login']) && $_POST['login'] == 'Login') {
   $salt = ($res) ? $res['salt'] : '';
   $salted = hash('sha256', $salt . $_POST['password']);
   
-  $login_stmt = $dbconn->prepare('SELECT username, password, isAdmin FROM users WHERE username=:username AND password=:password');
+  $login_stmt = $dbconn->prepare('SELECT username, password, isAdmin, uid FROM users WHERE username=:username AND password=:password');
   $login_stmt->execute(array(':username' => $_POST['username'], ':password' => $salted));
   
   if ($user = $login_stmt->fetch()) {
