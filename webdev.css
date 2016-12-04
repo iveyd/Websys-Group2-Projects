@@ -37,13 +37,18 @@
   text-align: center;
 }
 
+ul {
+  list-style-type: none;
+  margin-bottom: 200px;
+}
+
 h3, h1 {
   color:red;
 }
 
 img {
-  height: 50vh;
-  width: 50vw;
+  height: 175px;
+  width: 175px;
 }
 /* Set black background color, white text and some padding */
 footer {
