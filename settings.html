@@ -46,24 +46,44 @@
             <section>
               <section class="col-1">
                 <button class="button" id="email_popup">change email</button>
-                <div id="email_box">
-                  <input type="button" class="cancel_button" value="X">
+                <div id="email_box" class="popup">
+                  <input type="button" id="cancel_email" class="cancel_button" value="X">
                   <form action="../resources/php/settings.php" class="form_popup" method="POST">
                     <label for="input_name">Enter new email:</label>
                     <input type="text" class="input_name" name="email"><br>
                     <input name="changeemail" type="submit" class="button_popup" value="Confirm Change">
                   </form>
-                  <input type="button" class="close_button" value="Cancel">
+                  <input type="button" id="close_email" class="close_button" value="Cancel">
                 </div>
                 
                 <form action="../resources/php/settings.php" method="POST">
                   <input name="charreset" type="submit" class="button" value="Reset Character">
                 </form>
-                <button class="button">change password</button>
+
+                <button class="button" id="pass_popup">change password</button>
+                <div id="pass_box" class="popup">
+                  <input type="button" id="cancel_pass" class="cancel_button" value="X">
+                  <form action="../resources/php/settings.php" class="form_popup" method="POST">
+                    <label for="input_name">Enter new password:</label>
+                    <input type="text" class="input_name" name="pass"><br>
+                    <input name="changepass" type="submit" class="button_popup" value="Confirm Change">
+                  </form>
+                  <input type="button" id="close_pass" class="close_button" value="Cancel">
+                </div>
                 
               </section>
               <section class="col-2">
-                <button class="button">change user name</button>
+                <button class="button" id="user_popup">change user name</button>
+                <div id="user_box" class="popup">
+                  <input type="button" id="cancel_user" class="cancel_button" value="X">
+                  <form action="../resources/php/settings.php" class="form_popup" method="POST">
+                    <label for="input_name">Enter new username:</label>
+                    <input type="text" class="input_name" name="user"><br>
+                    <input name="changename" type="submit" class="button_popup" value="Confirm Change">
+                  </form>
+                  <input type="button" id="close_user" class="close_button" value="Cancel">
+                </div>
+
                 <button class="button">themes</button>
                 <button class="button">credits</button>
                 

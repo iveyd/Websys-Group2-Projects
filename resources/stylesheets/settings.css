@@ -130,23 +130,6 @@ footer {
   padding: 15px;
 }
 
-.alert 
-{
-	padding: 20px;
-	background-color: red;
-	color: white;
-	margin-bottom: 15px;
-}
-
-.closebtn
-{
-	color: white;
-	float: right;
-	font-size: 22px;
-	cursor: pointer;
-	transition: 0.3s;
-}
-
 /* On small screens, set height to 'auto' for sidenav and grid */
 @media screen and (max-width: 767px) {
   .sidenav {
@@ -164,7 +147,7 @@ footer {
  font-size:20px;
  cursor:pointer;
 }
-#email_box
+.popup/*, #user_box*/
 {
  visibility:hidden;
  display:none;
@@ -178,7 +161,7 @@ footer {
  box-shadow:0px 0px 10px 0px grey;
  font-family:helvetica;
 }
-#email_box .cancel_button /*#email_alert*/
+.popup .cancel_button /*#email_alert*/
 {
  float:right;
  margin-top:4px;
@@ -194,14 +177,8 @@ footer {
  box-shadow:0px 0px 10px 0px grey;
  cursor:pointer;
 }
-#email_box #info_text
-{
- padding:10px;
- clear:both;
- background-color:white;
- color:#6E6E6E;
-}
-#email_box .close_button
+
+.popup .close_button
 {
  margin:0px;
  padding:0px;

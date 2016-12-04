@@ -1,4 +1,5 @@
 <?php
+  session_start();
   $host = "localhost";
   $username = "root";
   $password = "";
@@ -39,13 +40,63 @@
   if(isset($_POST['changeemail']))
   {
     $newEmail = $_POST['email'];
-    $sql = "UPDATE `users`
-      SET `email` = '$newEmail';";
+    $uid = $_SESSION['uid'];
 
-    $dbh->query($sql);
+    $sql =   "UPDATE `users`
+              SET `email` = '$newEmail'
+              WHERE `uid` = $uid;";
+    $dbh->query($sql) or die($uid);
 
     echo '<script language="javascript">';
     echo 'alert("Email changed");';
+    echo 'window.location.href = "../../settings.html";';
+    echo '</script>';
+
+    // echo '<div id="email_alert">';
+    // echo '<input type="button" id="cancel_button" value="X">';
+    // echo '<p>Email changed</p>';
+    // echo '<input type="button" id="close_button" value="Cancel">';
+    // echo '</div>';
+    // echo '<script>window.location.href = "../../settings.html";</script>';
+
+  }
+
+  if(isset($_POST['changename']))
+  {
+    $newUser = $_POST['user'];
+    $uid = $_SESSION['uid'];
+
+    $sql =   "UPDATE `users`
+              SET `email` = '$newUser'
+              WHERE `uid` = $uid;";
+    $dbh->query($sql) or die($uid);
+
+    echo '<script language="javascript">';
+    echo 'alert("Username changed");';
+    echo 'window.location.href = "../../settings.html";';
+    echo '</script>';
+
+    // echo '<div id="email_alert">';
+    // echo '<input type="button" id="cancel_button" value="X">';
+    // echo '<p>Email changed</p>';
+    // echo '<input type="button" id="close_button" value="Cancel">';
+    // echo '</div>';
+    // echo '<script>window.location.href = "../../settings.html";</script>';
+
+  }
+
+  if(isset($_POST['changpass']))
+  {
+    $newPass = $_POST['pass'];
+    $uid = $_SESSION['uid'];
+
+    $sql =   "UPDATE `users`
+              SET `password` = '$newPass'
+              WHERE `uid` = $uid;";
+    $dbh->query($sql) or die($uid);
+echo 'hello';
+    echo '<script language="javascript">';
+    echo 'alert("Password changed");';
     echo 'window.location.href = "../../settings.html";';
     echo '</script>';
 
