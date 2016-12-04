@@ -29,7 +29,7 @@ img {
 }
 
 .button {
-	background-color: #4CAF50;
+	background-color: #FF0000;
 	border-radius: 15px;
 	outline: none;
 	width: 100%;
@@ -51,6 +51,42 @@ img {
   background-color: #3e8e41;
   box-shadow: 0 2px #666;
   transform: translateY(4px);
+}
+
+.button_popup {
+	background-color: #FF0000;
+	border-radius: 15px;
+	outline: none;
+	width: 55%;
+	border: none;
+	color: white;
+	text-align: center;
+	font-size: 125%;
+	margin: 10px;
+	cursor: pointer;
+	box-shadow: 0 5px #999;
+}
+
+.button_popup:hover {
+    background-color: #3e8e41; /* Green */
+    color: white;
+}
+
+.button_popup:active {
+  background-color: #3e8e41;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
+
+.form_popup {
+	margin-left: 20px;
+}
+
+input[type=text], select {
+	margin: 4px;
+	border-radius: 4px;
+	color: red;
+	font-size: 125%;
 }
 
 .col-1 {
@@ -94,6 +130,23 @@ footer {
   padding: 15px;
 }
 
+.alert 
+{
+	padding: 20px;
+	background-color: red;
+	color: white;
+	margin-bottom: 15px;
+}
+
+.closebtn
+{
+	color: white;
+	float: right;
+	font-size: 22px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
 /* On small screens, set height to 'auto' for sidenav and grid */
 @media screen and (max-width: 767px) {
   .sidenav {
@@ -101,4 +154,65 @@ footer {
     padding: 15px;
   }
   .row.content {height:auto;}
+}
+
+
+
+/*styleing for popup boxs*/
+#display_popup
+{
+ font-size:20px;
+ cursor:pointer;
+}
+#email_box
+{
+ visibility:hidden;
+ display:none;
+ width:30%;
+ background-color:#BDBDBD;
+ position:fixed;
+ left:35%;
+ top:30%;
+ border-radius:10px;
+ border:2px solid grey;
+ box-shadow:0px 0px 10px 0px grey;
+ font-family:helvetica;
+}
+#email_box .cancel_button /*#email_alert*/
+{
+ float:right;
+ margin-top:4px;
+ margin-bottom:4px;
+ margin-right:5px;
+ background-color:grey;
+ border:none;
+ color:white;
+ padding:5px;
+ border-radius:1000px;
+ width:25px;
+ border:1px solid #424242;
+ box-shadow:0px 0px 10px 0px grey;
+ cursor:pointer;
+}
+#email_box #info_text
+{
+ padding:10px;
+ clear:both;
+ background-color:white;
+ color:#6E6E6E;
+}
+#email_box .close_button
+{
+ margin:0px;
+ padding:0px;
+ width:70px;
+ height:30px;
+ line-height:30px;
+ font-size:16px;
+ background-color:grey;
+ color:white;
+ border:none;
+ margin-bottom:10px;
+ border-radius:2px;
+ cursor:pointer;
 }
