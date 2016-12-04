@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title>RPlayI</title>
+  <title>RPIRPG</title>
 
   <!-- Bootstrap Stuff -->
   <meta charset="utf-8">
@@ -45,12 +45,12 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <!-- Clicking previous button will load in the previous content page -->
-      <a class="previous" href="main.php">Previous</a>
+      <!-- <a class="previous btn" href="main.php">Previous</a> -->
     </div>
     <!-- Main content loaded here -->
-    <div class="col-sm-8 text-left gameBox"> 
+    <div class="col-sm-8 text-left gameBox">
       <?php
+        session_start();
 
         // What will be done here is that the "contid" variable from the users table
         // will be taken, and it will be compared against all rows in the game_content table.
@@ -89,8 +89,39 @@
             if ($contid == $usercontid)
             {
               $body = $row['body'];
-              echo "<h4>" . $body . "</h4";
+              $image = $row['image'];
+              $choice1 = $row['choice1'];
+              $choice2 = $row['choice2'];
+              $choice3 = $row['choice3'];
+
+              $choices = array($choice1, $choice2, $choice3);
+              $choicesLength = count($choices);
+
+              // echo "<img class='storyImage' src='resources/images/$image'/>";
+              echo "<h4 id='gameContent'>" . $body . "</h4>";
               echo "<br>";
+              echo "<div id='choices'>";
+              
+              if ($choice2 == "")
+              {
+                  echo "<input class='btn' type='submit' value='$choice1'></input>";
+              }
+              else if ($choice3 == "")
+              {
+                  for ($i = 0; $i < 2; $i++)
+                  {
+                    echo "<input class='btn' type='submit' value='$choices[$i]'></input>";
+                  }
+              }
+              else
+              {
+                for ($i = 0; $i < 3; $i++)
+                {
+                  echo "<input class='btn' type='submit' value='$choices[$i]'></input>";
+                }
+              }
+
+              echo "</div>";
               break;
             }
           }
@@ -100,13 +131,33 @@
       ?>
     </div>
     <div class="col-sm-2 sidenav">
-      <div>
-        <!-- Clicking previous button will load in the previous content page -->
-        <a class="next" href="main.php">Next</a>
-      </div>
+      <!-- <div>
+        Clicking next button will load in the next content page
+        <a class="btn next" href="main.php">Next</a>
+      </div> -->
     </div>
   </div>
 </div>
+
+<footer class="footer-basic-centered">
+
+   <!--    <p class="footer-company-motto">Enjoying the game? Check out more stuff below</p> -->
+
+      <p class="footer-links">
+        <a href="#">Home</a>
+        ·
+        <a href="#">Blog</a>
+        ·
+        <a href="#">About</a>
+        ·
+        <a href="faq.html">Faq</a>
+        ·
+        <a href="#">Contact</a>
+      </p>
+
+      <p class="footer-company-name">RPIRPG &copy; 2016</p>
+
+</footer>
 </body>
 <!-- JavaScript used to load PHP pages when "previous" or "next" is clicked -->
 <script src="resources/javascript/main.js"></script>

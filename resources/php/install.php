@@ -19,7 +19,14 @@
           CREATE TABLE IF NOT EXISTS `game_content` (
            `contid` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
            `body` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
-           `item` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+           `item` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+           `image` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+           `choice1` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+           `choice2` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+           `choice3` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+           `choice1Address` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+           `choice2Address` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+           `choice3Address` varchar(10) COLLATE utf8_unicode_ci NOT NULL
            ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
           CREATE TABLE IF NOT EXISTS `character` (
            `charid` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,

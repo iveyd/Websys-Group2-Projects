@@ -3,7 +3,7 @@
   try {
     $dbname = 'RPIRPG';
     $user = 'root';
-    $pass = 'test_password';
+    $pass = '';
     $dbconn = new PDO('mysql:host=localhost;dbname='.$dbname, $user, $pass);
   }
   catch (Exception $e) {
