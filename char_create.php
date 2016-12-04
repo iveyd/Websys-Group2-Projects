@@ -13,9 +13,9 @@
   if (isset($_POST['submit']) && ($_POST['submit'] == 'Create!')) {
     $name = $_POST['name'];
     $avatar = $_POST['avatar'];
-    echo "fuck bitches. get money.";
-    $stmt = $dbconn->prepare("INSERT INTO character (charname, img) VALUES (:charname, :img)");
-    $stmt->execute(array(':charname' => $name, ':img' => $avatar));
+ 
+    $stmt = $dbconn->prepare("INSERT INTO `character` (charname, img) VALUES (:charname, :img)");
+    $stmt->execute(array(':charname' => $name, ':img' => $avatar)) or die("kjhekjhlkjhlkj");
 
     header("Location: main.php");
   }
@@ -44,13 +44,6 @@
         <a class="navbar-brand" href="index.html">RPIRPG</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><a href="main.php">Home</a></li>
-          <li><a href="character.html" id="buttonCharacter">Character</a></li>
-          <li><a href="inventory.html" id="buttonInventory">Inventory</a></li>
-          <li class="active"><a href="#" id="buttonSettings">Settings</a></li>
-          <li><a href="admin.html" id="buttonAdmin">Admin</a></li>
-        </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="index.html"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
         </ul>
@@ -76,7 +69,7 @@
       </div>
         <div id="avatarSelect">
           <label>
-            <input type="radio" name="avatar" value="light_male.png"/>
+            <input type="radio" name="avatar" value="light_male.png"  checked/>
             <img class="avatar" src="resources/images/light_male.png" alt="light_male">
           </label>
           <label>
@@ -111,7 +104,7 @@
             <img class="avatar" src="resources/images/pale_female.png" alt="pale_female">
           </label>
         </div>
-        <input id="submit" type="submit" class="btn btn-success" name="submit" value="Create!" onclick="validate();"/>
+        <input id="submit" type="submit" class="btn btn-success" name="submit" value="Create!"/>
       </div>
     </form>
   </div>
@@ -123,14 +116,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script>
-    function validate(formObj) {
-      if (document.forms["charCreateForm"]["avatar"].value == "") {
-        $("#avatarSelect").css("box-shadow", "0px 0px 2px 2px #222222")
-      }
-     }
-
-  </script>
 </body>
 </html>
 
