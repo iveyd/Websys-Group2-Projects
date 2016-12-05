@@ -1,15 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Character</title>
-  <!-- Bootstrap Stuff -->
+  <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- Our Stuff -->
-  <link rel="stylesheet" href="resources/stylesheets/joe.css">
+  <link rel="stylesheet" type="text/css" href="./resources/stylesheets/character.css">
 </head>
 <body>
 
@@ -21,18 +17,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">RPIRPG</a>
+      <a class="navbar-brand" href="#">RPIG</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="main.php">Home</a></li>
-        <li class="active"><a href="#" id="buttonCharacter">Character</a></li>
-        <li><a href="inventory.html" id="buttonInventory">Inventory</a></li>
-        <li><a href="settings.html" id="buttonSettings">Settings</a></li>
-        <li><a href="admin.html" id="buttonAdmin">Admin</a></li>
+        <li id="home-btn"><a href="./index.html">Home</a></li>
+        <li id="character-btn" class="active"><a href="./character.html">Character</a></li>
+        <li id="inventory-btn"><a href="./inventory.html">Inventory</a></li>
+        <li id="settings-btn"><a href="./settings.html">Settings</a></li>
+        <li id="admin-btn"><a href="./admin.html">Admin</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="index.html"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        <li><a href="./index.html"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
       </ul>
     </div>
   </div>
@@ -40,11 +36,35 @@
   
 <div class="container-fluid text-center">
   <div class="row content">
-    <div class="col-sm-8 text-left" id="main"></div>
-  </div>
+    <div id="Info-Tab" class="col-sm-3 sidenav">
+      <h3> Information </h3>
+      <ul id="Character-Information">
+        <li class="Info-topic" id="Character-Name"><strong>Name:</strong> </li>
+        <li class="Info-topic" id="Major"><strong>Major:</strong> </li>
+        <li class="Info-topic" id="Money"><strong>Money:</strong> </li>
+        <li class="Info-topic" id="Happiness"><strong>Happiness:</strong> </li>
+      </ul>
+    </div>
+    <div id="character-screen" class="col-sm-9 text-left">
+      <h1 id="character-screen-title">Welcome</h1>
+      <img class="center-block" id="avatar" src="./resources/images/dark_female.png">
+      <div id="events" style="overflow:auto; height:250px;">
+        <h3 id="events-title">Events</h3>
+        <p>Will Insert text about events here (gaining cash, credits etc. test test test test)</p>
+        <p>Will Insert text about events here (gaining cash, credits etc. test test test test)</p>
+        <p>Will Insert text about events here (gaining cash, credits etc. test test test test)</p>
+        <p>Will Insert text about events here (gaining cash, credits etc. test test test test)</p>
+      </div>
+    </div>
 </div>
 
+<footer class="container-fluid text-center">
+  <h3>RPI RPG</h3>
+  <h6>David Ivey, Asad Mehdi, Joseph Noel, Connor Stalker, Chris Valmas</h6>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="./resources/javascript/character.js"></script>
 </body>
-<script src="resources/javascript/joe.js"></script>
 </html>
 
