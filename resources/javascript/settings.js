@@ -8,6 +8,16 @@ $(document).ready(function(){
  $("#pass_popup").click(function(){
   passshow();
  });
+ $("#credit_popup").click(function(){
+  creditshow();
+ });
+
+ $("#cancel_credit").click(function(){
+  credithide();
+ });
+ $("#close_credit").click(function(){
+  credithide();
+ });
 
  $("#cancel_email").click(function(){
   emailhide();
@@ -67,4 +77,16 @@ function passhide()
 {
  $("#pass_box").fadeToggle();
  $("#pass_box").css({"visibility":"hidden","display":"none"});
+}
+
+function creditshow()
+{
+ $("#credit_box").fadeToggle();
+ $("#credit_box").css({"visibility":"visible","display":"block"});
+}
+
+function credithide()
+{
+ $("#credit_box").fadeToggle();
+ $("#credit_box").css({"visibility":"hidden","display":"none"});
 }

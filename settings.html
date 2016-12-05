@@ -5,10 +5,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Settings</title>
-  <link rel="stylesheet" href="resources/stylesheets/settings.css">
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="../resources/javascript/settings.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="resources/stylesheets/settings.css">
 </head>
 
 <body>
@@ -41,7 +43,7 @@
     <div class="col-sm-2 sidenav">
     </div>
     <div id="settings" class="col-md-8 text-center">
-      <img id="title" src="resources/images/Settings.png" alt="settings">
+      <!-- <img id="title" src="resources/images/Settings.png" alt="settings"> -->
         <div class="form-inline">
             <section>
               <section class="col-1">
@@ -60,7 +62,7 @@
                   <input name="charreset" type="submit" class="button" value="Reset Character">
                 </form>
 
-                <button class="button" id="pass_popup">change password</button>
+                <button class="disabled" id="pass_popup">change password</button>
                 <div id="pass_box" class="popup">
                   <input type="button" id="cancel_pass" class="cancel_button" value="X">
                   <form action="../resources/php/settings.php" class="form_popup" method="POST">
@@ -84,12 +86,18 @@
                   <input type="button" id="close_user" class="close_button" value="Cancel">
                 </div>
 
-                <button class="button">themes</button>
-                <button class="button">credits</button>
+                <button  class="disabled">themes</button>
+
+                <button class="button" id="credit_popup">credits</button>
+                <div id="credit_box" class="popup">
+                  <input type="button" id="cancel_credit" class="cancel_button" value="X">
+                  <p>Joe, David, Chris, Connor, Ashad</p>
+                  <input type="button" id="close_credit" class="close_button" value="Cancel">
+                </div>
                 
               </section>
               <section class="col-3">
-                <button class="button">contact admins</button>
+                <button  class="disabled">contact admins</button>
               </section>
             </section>
           </div>
@@ -98,6 +106,26 @@
   <div class="col-sm-2 sidenav">
     </div>
 </div>
+
+<footer class="footer-basic-centered">
+
+   <!--    <p class="footer-company-motto">Enjoying the game? Check out more stuff below</p> -->
+
+      <p class="footer-links">
+        <a href="#">Home</a>
+        ·
+        <a href="#">Blog</a>
+        ·
+        <a href="#">About</a>
+        ·
+        <a href="faq.html">Faq</a>
+        ·
+        <a href="#">Contact</a>
+      </p>
+
+      <p class="footer-company-name">RPIRPG &copy; 2016</p>
+
+</footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
