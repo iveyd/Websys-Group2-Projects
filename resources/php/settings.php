@@ -76,17 +76,11 @@
       $uid = $_SESSION['uid'];
       $newpassword = 
 
-    // Generate salt
+      // Generate salt
       $salt = hash('sha256', uniqid(mt_rand(), true));
       // Apply salt before hash
       $salted = hash('sha256', $salt . $_POST['password']);
       // Store salt
-
-
-      // echo '<script language="javascript">';
-      // echo 'alert("Password changed");';
-      // echo 'window.location.href = "../../settings.html";';
-      // echo '</script>';
 
       try {
         $sql = "UPDATE `users`
@@ -94,6 +88,11 @@
                     `salt` = '$salt'
                 WHERE `uid` = $uid;";
         $dbh->query($sql);
+
+        echo '<script language="javascript">';
+        echo 'alert("Password changed");';
+        echo 'window.location.href = "../../settings.html";';
+        echo '</script>';
       } 
       catch (PDOException $e) {
         echo $e->getMessage();
