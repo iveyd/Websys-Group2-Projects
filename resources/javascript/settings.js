@@ -11,6 +11,9 @@ $(document).ready(function(){
  $("#credit_popup").click(function(){
   creditshow();
  });
+ $("#admin_popup").click(function(){
+  adminshow();
+ });
 
  $("#cancel_credit").click(function(){
   credithide();
@@ -38,6 +41,13 @@ $(document).ready(function(){
  });
  $("#close_pass").click(function(){
   passhide();
+ });
+
+ $("#cancel_admin").click(function(){
+  adminhide();
+ });
+ $("#close_admin").click(function(){
+  adminhide();
  });
 
 });
@@ -89,4 +99,16 @@ function credithide()
 {
  $("#credit_box").fadeToggle();
  $("#credit_box").css({"visibility":"hidden","display":"none"});
+}
+
+function adminshow()
+{
+ $("#admin_box").fadeToggle();
+ $("#admin_box").css({"visibility":"visible","display":"block"});
+}
+
+function adminhide()
+{
+ $("#admin_box").fadeToggle();
+ $("#admin_box").css({"visibility":"hidden","display":"none"});
 }
