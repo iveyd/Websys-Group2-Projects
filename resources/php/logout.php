@@ -5,7 +5,7 @@
 	unset($_SESSION);
   session_destroy();
 
-  header("Location: ../index.php"); //redirect to login
+  header("Location: ../../index.html"); //redirect to login
   echo 'You have been logged out.';
   exit;
 ?>
