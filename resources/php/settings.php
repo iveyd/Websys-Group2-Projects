@@ -60,7 +60,7 @@
     $uid = $_SESSION['uid'];
 
     $sql =   "UPDATE `users`
-              SET `email` = '$newUser'
+              SET `username` = '$newUser'
               WHERE `uid` = $uid;";
     $dbh->query($sql) or die($uid);
 
@@ -74,6 +74,7 @@
   if(isset($_POST['changepass']))
   {
       $uid = $_SESSION['uid'];
+      $newpassword = 
 
     // Generate salt
       $salt = hash('sha256', uniqid(mt_rand(), true));
@@ -89,8 +90,8 @@
 
       try {
         $sql = "UPDATE `users`
-                SET `password` = $salted,
-                    `salt` = $salt
+                SET `password` = '$salted',
+                    `salt` = '$salt'
                 WHERE `uid` = $uid;";
         $dbh->query($sql);
       } 
