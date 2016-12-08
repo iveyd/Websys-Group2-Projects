@@ -1,20 +1,8 @@
 <?php
-  require "config.php";
-	session_start();
+  session_start();
+  require "connect.php";
 
-  // Connect to the database
-  try {
-    $host = $config["dbhost"];
-    $dbname = $config["dbname"];
-    $user = $config["dbuser"];
-    $pass = $config["dbpass"];
-    $dbconn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-  }
-  catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-  }
-
-  if ($dbconn && isset($_POST['create']) && $_POST['create'] == 'Create') {
+  if ($dbh && isset($_POST['create']) && $_POST['create'] == 'Create') {
   	if (!isset($_POST['username']) || !isset($_POST['password']) || 
   			!isset($_POST['confirm'])  || !isset($_POST['email'])) {
   		$msg = "Please fill in all fields.";
@@ -26,7 +14,7 @@
   		// Apply salt before hash
   		$salted = hash('sha256', $salt . $_POST['password']);
   		// Store salt
-  		$stmt = $dbconn->prepare("INSERT INTO `users` (`email`, `username`, `password`, `salt`) VALUES (:email, :username, :password, :salt)");
+  		$stmt = $dbh->prepare("INSERT INTO `users` (`email`, `username`, `password`, `salt`) VALUES (:email, :username, :password, :salt)");
   		try {
 	  		$stmt->execute(array(':email' => $_POST['email'],
 	  												 ':username' => $_POST['username'],

@@ -1,25 +1,16 @@
 <?php
-  require "config.php"; 
-
-  try {
-    $host = $config["dbhost"];
-    $dbname = $config["dbname"];
-    $user = $config["dbuser"];
-    $pass = $config["dbpass"];
-    $dbconn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-  }
-  catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-  }
+  session_start();
+  require "connect.php"; 
 
   if (isset($_POST['submit']) && ($_POST['submit'] == 'Create!')) {
+    $charid = $_SESSION['uid'];
     $name = $_POST['name'];
     $avatar = $_POST['avatar'];
  
-    $stmt = $dbconn->prepare("INSERT INTO `character` (charname, img) VALUES (:charname, :img)");
-    $stmt->execute(array(':charname' => $name, ':img' => $avatar)) or die("kjhekjhlkjhlkj");
+    $stmt = $dbh->prepare("INSERT INTO `character` (charid, charname, img) VALUES (:charid, :charname, :img)");
+    $stmt->execute(array(':charid' => $charid, ':charname' => $name, ':img' => $avatar));
 
-    header("Location: ../../main.php");
+    header("Location: ../../index.html");
   }
 
 ?>

@@ -50,82 +50,56 @@
     <!-- Main content loaded here -->
     <div class="col-sm-8 text-left gameBox">
       <?php
-        require "resources/php/config.php";
         session_start();
+        require "resources/php/connect.php";
 
-        // What will be done here is that the "contid" variable from the users table
-        // will be taken, and it will be compared against all rows in the game_content table.
-        // If the user's "contid" is equal to the game_content row "contid", then we will load
-        // that content.
+        // Getting the user's "contid"
+        $getusercontid = "SELECT `contid` FROM `users` WHERE `uid`={$_SESSION['uid']}";
+        $result = $dbh->query($getusercontid);
+        $usercontid = $result->fetch()['contid'];
 
-        $host = $config["dbhost"];
-        $db = $config["dbname"];
-        $username = $config["dbuser"];
-        $password = $config["dbpass"];
+        // Selecting correct game content
+        $getcontent = "SELECT * FROM `game_content` WHERE `contid`=$usercontid";
+        $res = $dbh->query($getcontent);
+        $row = $res->fetch();
+        $contid = $row['contid'];
 
-        try {
-          // Connecting to database
-          $dbh = new PDO("mysql:host=$host;dbname=$db", $username, $password);
+        // Assign variables from results
+        $body = $row['body'];
+        $image = $row['image'];
+        $choice1 = $row['choice1'];
+        $choice2 = $row['choice2'];
+        $choice3 = $row['choice3'];
 
-          // Getting the user's "contid"
-          $getusercontid = "SELECT `contid` FROM `users` WHERE `uid`={$_SESSION['uid']}";
-          $result = $dbh->query($getusercontid);
-          $usercontid = $result->fetch()['contid'];
-          echo $usercontid;
+        // Follow code creates the html for the question and buttons
+        $choices = array($choice1, $choice2, $choice3);
+        $choicesLength = count($choices);
 
-          // Selecting all the game content
-          $getcontent = "SELECT * FROM `game_content`";
-
-          // Searching for a match between the user's "contid" and 
-          // the game_content row "contid"
-          foreach($dbh->query($getcontent) as $row)
-          {
-            $contid = $row['contid'];
-
-            // Match is found, so we output the game_content row "body",
-            // and then exit
-            if ($contid == $usercontid)
-            {
-              $body = $row['body'];
-              $image = $row['image'];
-              $choice1 = $row['choice1'];
-              $choice2 = $row['choice2'];
-              $choice3 = $row['choice3'];
-
-              $choices = array($choice1, $choice2, $choice3);
-              $choicesLength = count($choices);
-
-              // echo "<img class='storyImage' src='resources/images/$image'/>";
-              echo "<h4 id='gameContent'>" . $body . "</h4>";
-              echo "<br>";
-              echo "<div id='choices'>";
-              
-              if ($choice2 == "")
-              {
-                  echo "<input class='btn' type='submit' value='$choice1'></input>";
-              }
-              else if ($choice3 == "")
-              {
-                  for ($i = 0; $i < 2; $i++)
-                  {
-                    echo "<input class='btn' type='submit' value='$choices[$i]'></input>";
-                  }
-              }
-              else
-              {
-                for ($i = 0; $i < 3; $i++)
-                {
-                  echo "<input class='btn' type='submit' value='$choices[$i]'></input>";
-                }
-              }
-
-              echo "</div>";
-              break;
-            }
-          }
-        } catch(PDOException $e) {
-          echo "ERROR: " . $e->getMessage();
+        // echo "<img class='storyImage' src='resources/images/$image'/>";
+        echo "<h4 id='gameContent'>" . $body . "</h4>";
+        echo "<br>";
+        echo "<div id='choices'>";
+        
+        // Not all stages have three options so handle 1 to 3 choices
+        if ($choice2 == "")
+        {
+            echo "<input class='btn' type='submit' value='$choice1'></input>";
         }
+        else if ($choice3 == "")
+        {
+            for ($i = 0; $i < 2; $i++)
+            {
+              echo "<input class='btn' type='submit' value='$choices[$i]'></input>";
+            }
+        }
+        else
+        {
+          for ($i = 0; $i < 3; $i++)
+          {
+            echo "<input class='btn' type='submit' value='$choices[$i]'></input>";
+          }
+        }
+        echo "</div>";
       ?>
     </div>
     <div class="col-sm-2 sidenav">
@@ -138,26 +112,11 @@
 </div>
 
 <footer class="footer-basic-centered">
-
-   <!--    <p class="footer-company-motto">Enjoying the game? Check out more stuff below</p> -->
-
-      <p class="footer-links">
-        <a href="#">Home</a>
-        ·
-        <a href="#">Blog</a>
-        ·
-        <a href="#">About</a>
-        ·
-        <a href="faq.html">Faq</a>
-        ·
-        <a href="#">Contact</a>
-      </p>
-
-      <p class="footer-company-name">RPIRPG &copy; 2016</p>
-
+  <p class="footer-company-name">RPIRPG &copy; 2016</p>
 </footer>
-</body>
-<!-- JavaScript used to load PHP pages when "previous" or "next" is clicked -->
+
 <script src="resources/javascript/main.js"></script>
+
+</body>
 </html>
 

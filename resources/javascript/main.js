@@ -1,14 +1,12 @@
 $(document).on("click", ":submit", function(e){
     var value = $(this).val();
-
     e.preventDefault();
-
     $.ajax({
-    	type: 'post',
-    	url: 'resources/php/post.php',
+        url: "resources/php/post.php",
+    	type: "POST",
     	data: {choice: value},
     	success: function() {
-    		location.reload();
+    		window.location = "main.php";
     	}
     });
 });

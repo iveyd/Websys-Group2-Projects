@@ -1,5 +1,11 @@
 <?php
-require "config.php";
+$config = array(
+  "dbhost" => "localhost",
+  "dbname" => "rpirpg",
+  "dbuser" => "root",
+  "dbpass" => "root"
+);
+
 session_start();
 
 // Connect to the database
@@ -17,15 +23,17 @@ catch (Exception $e) {
 
 // Check login
 if ($dbconn && isset($_POST['login']) && $_POST['login'] == 'Login') {
+  // get the salt
   $salt_stmt = $dbconn->prepare('SELECT `salt` FROM `users` WHERE `username`=:username');
   $salt_stmt->execute(array(':username' => $_POST['username']));
   $res = $salt_stmt->fetch();
   $salt = ($res) ? $res['salt'] : '';
+  // create salted password
   $salted = hash('sha256', $salt . $_POST['password']);
-  
+  // check for user/pass in database
   $login_stmt = $dbconn->prepare('SELECT username, password, isAdmin, uid FROM users WHERE username=:username AND password=:password');
   $login_stmt->execute(array(':username' => $_POST['username'], ':password' => $salted));
-  
+  // If the user was correct, set session and location
   if ($user = $login_stmt->fetch()) {
     $_SESSION['username'] = $user['username'];
     $_SESSION['uid'] = $user['uid'];
@@ -39,8 +47,6 @@ if ($dbconn && isset($_POST['login']) && $_POST['login'] == 'Login') {
       exit();
     }
   } else {
-    $err = 'Incorrect username or password.';
+    header('Location: ../../index.html?status=failed');
   }
-} else {
-  echo "Shit.";
 }

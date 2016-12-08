@@ -1,62 +1,27 @@
 <?php
-	require "config.php";
-	
-	if ($_POST['choice'])
+	session_start();
+	require "connect.php";
+
+	if (isset($_POST['choice']))
 	{
+		// Set user choice
 		$choice = $_POST['choice'];
+		// Get the correct contid based off of choice
+	  $getgamecontent = "SELECT `contid`, `choice1`, `choice2`, `choice3`, `choice1Address`, `choice2Address`, `choice3Address`
+	  									 FROM `game_content` 
+	  									 WHERE `choice1`='$choice' OR `choice2`='$choice' OR `choice3`='$choice';";
+	  $result = $dbh->query($getgamecontent);
+	  $res = $result->fetch();
+	  if ($choice==$res['choice1']) {
+	  	$newcontid = $res['choice1Address'];
+	  } else if ($choice==$res['choice2']) {
+	  	$newcontid = $res['choice2Address'];
+	  } else {
+	  	$newcontid = $res['choice3Address'];
+	  }
 
-	  $host = $config["dbhost"];
-	  $db = $config["dbname"];
-	  $username = $config["dbuser"];
-	  $password = $config["dbpass"];
-		try {
-		  $dbh = new PDO("mysql:host=$host;dbname=$db", $username, $password);
-
-		  $getusercontid = "SELECT * FROM `users`";
-		  foreach($dbh->query($getusercontid) as $row)
-		  {
-		    $usercontid = $row['contid'];
-		  }
-
-		  $getgamecontent = "SELECT * FROM `game_content`";
-		  foreach($dbh->query($getgamecontent) as $row)
-		  {
-		  	$contid = $row['contid'];
-		  	if ($usercontid == $contid)
-		  	{
-		  	  $body = $row['body'];
-              $image = $row['image'];
-
-              $choice1 = $row['choice1'];
-              $choice2 = $row['choice2'];
-              $choice3 = $row['choice3'];
-
-              $choice1Address = $row['choice1Address'];
-              $choice2Address = $row['choice2Address'];
-              $choice3Address = $row['choice3Address'];
-
-              if ($choice1 == $choice)
-              {
-              	$usercontid = $choice1Address;
-              }
-              else if ($choice2 == $choice)
-              {
-              	$usercontid = $choice2Address;
-              }
-              else
-              {
-              	$usercontid = $choice3Address;
-              } 
-
-              break;
-		  	}
-		  }
-
-		  $updateusercontid = "UPDATE `users` SET `contid`=$usercontid WHERE `uid`=1";
-		  $dbh->exec($updateusercontid);
-
-		} catch(PDOException $e) {
-		  echo "ERROR: " . $e->getMessage();
-		}
+	  // Update user with new contid
+	  $updateusercontid = "UPDATE `users` SET `contid`=$newcontid WHERE `uid`={$_SESSION['uid']};";
+	  $affected = $dbh->exec($updateusercontid);
 	}
 ?>
