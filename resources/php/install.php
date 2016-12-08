@@ -1,10 +1,12 @@
 <?php
-  $host = "localhost";
-  $username = "root";
-  $password = "";
+  require "config.php";
+
+  $host = $config["dbhost"];
+  $db = $config["dbname"];
+  $username = $config["dbuser"];
+  $password = $config["dbpass"];
 
   // Creating our database
-  $db = "RPIRPG";
   $sql1 = "CREATE DATABASE IF NOT EXISTS `$db`;
            USE `$db`;
            CREATE TABLE IF NOT EXISTS `users` (

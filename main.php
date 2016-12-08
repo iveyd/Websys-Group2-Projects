@@ -50,6 +50,7 @@
     <!-- Main content loaded here -->
     <div class="col-sm-8 text-left gameBox">
       <?php
+        require "resources/php/config.php";
         session_start();
 
         // What will be done here is that the "contid" variable from the users table
@@ -57,23 +58,20 @@
         // If the user's "contid" is equal to the game_content row "contid", then we will load
         // that content.
 
-        $host = "localhost";
-        $username = "root";
-        $password = "";
-        $db = "rpirpg";
+        $host = $config["dbhost"];
+        $db = $config["dbname"];
+        $username = $config["dbuser"];
+        $password = $config["dbpass"];
 
         try {
           // Connecting to database
           $dbh = new PDO("mysql:host=$host;dbname=$db", $username, $password);
 
-          // Currently am selecting everything from users page, my users database
-          // only contains a single user so this works for testing purposes.
-          $getusercontid = "SELECT * FROM `users`";
-          foreach($dbh->query($getusercontid) as $row)
-          {
-            // Getting the user's "contid"
-            $usercontid = $row['contid'];
-          }
+          // Getting the user's "contid"
+          $getusercontid = "SELECT `contid` FROM `users` WHERE `uid`={$_SESSION['uid']}";
+          $result = $dbh->query($getusercontid);
+          $usercontid = $result->fetch()['contid'];
+          echo $usercontid;
 
           // Selecting all the game content
           $getcontent = "SELECT * FROM `game_content`";

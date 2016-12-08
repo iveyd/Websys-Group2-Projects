@@ -1,10 +1,12 @@
-<?php 
+<?php
+  require "config.php"; 
 
   try {
-    $dbname = 'RPIRPG';
-    $user = 'root';
-    $pass = '';
-    $dbconn = new PDO('mysql:host=localhost;dbname='.$dbname, $user, $pass);
+    $host = $config["dbhost"];
+    $dbname = $config["dbname"];
+    $user = $config["dbuser"];
+    $pass = $config["dbpass"];
+    $dbconn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
   }
   catch (Exception $e) {
     echo "Error: " . $e->getMessage();

@@ -1,12 +1,14 @@
 <?php
+	require "config.php";
+	
 	if ($_POST['choice'])
 	{
 		$choice = $_POST['choice'];
 
-		$host = "localhost";
-		$username = "root";
-		$password = "";
-		$db = "rpirpg";
+	  $host = $config["dbhost"];
+	  $db = $config["dbname"];
+	  $username = $config["dbuser"];
+	  $password = $config["dbpass"];
 		try {
 		  $dbh = new PDO("mysql:host=$host;dbname=$db", $username, $password);
 
