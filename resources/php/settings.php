@@ -52,13 +52,6 @@
     echo 'window.location.href = "../../settings.html";';
     echo '</script>';
 
-    // echo '<div id="email_alert">';
-    // echo '<input type="button" id="cancel_button" value="X">';
-    // echo '<p>Email changed</p>';
-    // echo '<input type="button" id="close_button" value="Cancel">';
-    // echo '</div>';
-    // echo '<script>window.location.href = "../../settings.html";</script>';
-
   }
 
   if(isset($_POST['changename']))
@@ -67,7 +60,7 @@
     $uid = $_SESSION['uid'];
 
     $sql =   "UPDATE `users`
-              SET `email` = '$newUser'
+              SET `username` = '$newUser'
               WHERE `uid` = $uid;";
     $dbh->query($sql) or die($uid);
 
@@ -76,36 +69,34 @@
     echo 'window.location.href = "../../settings.html";';
     echo '</script>';
 
-    // echo '<div id="email_alert">';
-    // echo '<input type="button" id="cancel_button" value="X">';
-    // echo '<p>Email changed</p>';
-    // echo '<input type="button" id="close_button" value="Cancel">';
-    // echo '</div>';
-    // echo '<script>window.location.href = "../../settings.html";</script>';
-
   }
 
-  if(isset($_POST['changpass']))
+  if(isset($_POST['changepass']))
   {
-    $newPass = $_POST['pass'];
-    $uid = $_SESSION['uid'];
+      $uid = $_SESSION['uid'];
+      $newpassword = 
 
-    $sql =   "UPDATE `users`
-              SET `password` = '$newPass'
-              WHERE `uid` = $uid;";
-    $dbh->query($sql) or die($uid);
-echo 'hello';
-    echo '<script language="javascript">';
-    echo 'alert("Password changed");';
-    echo 'window.location.href = "../../settings.html";';
-    echo '</script>';
+      // Generate salt
+      $salt = hash('sha256', uniqid(mt_rand(), true));
+      // Apply salt before hash
+      $salted = hash('sha256', $salt . $_POST['password']);
+      // Store salt
 
-    // echo '<div id="email_alert">';
-    // echo '<input type="button" id="cancel_button" value="X">';
-    // echo '<p>Email changed</p>';
-    // echo '<input type="button" id="close_button" value="Cancel">';
-    // echo '</div>';
-    // echo '<script>window.location.href = "../../settings.html";</script>';
+      try {
+        $sql = "UPDATE `users`
+                SET `password` = '$salted',
+                    `salt` = '$salt'
+                WHERE `uid` = $uid;";
+        $dbh->query($sql);
+
+        echo '<script language="javascript">';
+        echo 'alert("Password changed");';
+        echo 'window.location.href = "../../settings.html";';
+        echo '</script>';
+      } 
+      catch (PDOException $e) {
+        echo $e->getMessage();
+      }
 
   }
   
