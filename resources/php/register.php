@@ -1,6 +1,6 @@
 <?php
-  session_start();
   require "connect.php";
+  session_start();
 
   if ($dbh && isset($_POST['create']) && $_POST['create'] == 'Create') {
   	if (!isset($_POST['username']) || !isset($_POST['password']) || 
@@ -20,7 +20,9 @@
 	  												 ':username' => $_POST['username'],
 	  												 ':password' => $salted,
 	  												 ':salt' => $salt));
-	  		header('Location: ../../char_create.html');
+        $getuid = $dbh->query("SELECT `uid` FROM `users` WHERE `email`='{$_POST['email']}' AND `username`='{$_POST['username']}' AND `password`='$salted';");
+	  		$_SESSION['uid'] = $getuid->fetch()['uid'];
+        header('Location: ../../char_create.php');
 	  		exit();
 	  	} catch (PDOException $e) {
 	  		echo $e->getMessage();

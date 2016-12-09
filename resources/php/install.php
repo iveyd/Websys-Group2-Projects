@@ -30,6 +30,7 @@
              ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
             CREATE TABLE IF NOT EXISTS `character` (
              `charid` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+             `uid` int(11) NOT NULL,
              `charname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
              `img` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
              `major` varchar(100) COLLATE utf8_unicode_ci NOT NULL,

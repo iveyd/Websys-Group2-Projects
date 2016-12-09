@@ -20,7 +20,7 @@
   
   	echo '<script language="javascript">';
     echo 'alert("character reset");';
-    echo 'window.location.href = "../../settings.html";';
+    echo 'window.location.href = "../../settings.php";';
     echo '</script>';
 
   }
@@ -37,7 +37,7 @@
 
     echo '<script language="javascript">';
     echo 'alert("Email changed");';
-    echo 'window.location.href = "../../settings.html";';
+    echo 'window.location.href = "../../settings.php";';
     echo '</script>';
 
   }
@@ -54,7 +54,7 @@
 
     echo '<script language="javascript">';
     echo 'alert("Username changed");';
-    echo 'window.location.href = "../../settings.html";';
+    echo 'window.location.href = "../../settings.php";';
     echo '</script>';
 
   }
@@ -79,7 +79,7 @@
 
         echo '<script language="javascript">';
         echo 'alert("Password changed");';
-        echo 'window.location.href = "../../settings.html";';
+        echo 'window.location.href = "../../settings.php";';
         echo '</script>';
       } 
       catch (PDOException $e) {

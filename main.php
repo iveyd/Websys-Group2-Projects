@@ -24,15 +24,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">RPIRPG</a>
+      <a class="navbar-brand" href="main.php">RPIRPG</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
-        <li><a href="character.html" id="buttonCharacter">Character</a></li>
-        <li><a href="inventory.html" id="buttonInventory">Inventory</a></li>
-        <li><a href="settings.html" id="buttonSettings">Settings</a></li>
-        <li><a href="admin.html" id="buttonAdmin">Admin</a></li>
+        <li><a href="character.php" id="buttonCharacter">Character</a></li>
+        <li><a href="settings.php" id="buttonSettings">Settings</a></li>
+        <?php require "resources/php/check_admin.php"; ?>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="resources/php/logout.php"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
@@ -50,8 +49,7 @@
     <!-- Main content loaded here -->
     <div class="col-sm-8 text-left gameBox">
       <?php
-        session_start();
-        require "resources/php/connect.php";
+        // Session and connection from check_admin
 
         // Getting the user's "contid"
         $getusercontid = "SELECT `contid` FROM `users` WHERE `uid`={$_SESSION['uid']}";
@@ -102,12 +100,7 @@
         echo "</div>";
       ?>
     </div>
-    <div class="col-sm-2 sidenav">
-      <!-- <div>
-        Clicking next button will load in the next content page
-        <a class="btn next" href="main.php">Next</a>
-      </div> -->
-    </div>
+    <div class="col-sm-2 sidenav"></div>
   </div>
 </div>
 
